@@ -38,10 +38,10 @@
           <p class="text-center top-buffer">
             Or sign up with your Google or Facebook account
           </p>
-          <button type="button" class="btn btn-lg btn-block btn-danger top-buffer">
+          <button type="button" ng-click="authCtrl.loginWithGoogle();" class="btn btn-lg btn-block btn-danger top-buffer">
             Google+
           </button> 
-          <button type="button" class="btn btn-lg btn-block btn-primary">
+          <button type="button" ng-click="authCtrl.loginWithFacebook();" class="btn btn-lg btn-block btn-primary">
             Facebook
           </button>
         </div>
