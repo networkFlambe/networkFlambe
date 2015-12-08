@@ -21,6 +21,8 @@
 
       authCtrl.login = login;
       authCtrl.register = register;
+      authCtrl.loginWithFacebook = loginWithFacebook;
+      authCtrl.loginWithGoogle = loginWithGoogle;
       
 
       /*=============================================
@@ -47,5 +49,24 @@
           authCtrl.error = error;
         })
       };
+
+      function loginWithFacebook() {
+        Auth.OAuthLogin('facebook').then(function (authData){
+          console.log("authdata in controller", authData);
+          Users.currentUser = authData;
+          $state.go('landing');  
+          $rootScope.$broadcast('evt_userSigningIn');
+        });
+      };
+
+      function loginWithGoogle() {
+        Auth.OAuthLogin('google').then(function (authData){
+          console.log("authdata in controller", authData);
+          Users.currentUser = authData;
+          $rootScope.$broadcast('evt_userSigningIn');
+          $state.go('landing');  
+        }); 
+      };
+
   };
 })();

@@ -45,7 +45,7 @@
         /**
           TODO:
           - this will not work if the page is refreshed. 
-          - should changed to DB or using cookie version.
+          - should changed to a cookie based version.
          */
         
         if(Users.currentUser){
@@ -58,14 +58,14 @@
       function logout(){
         Auth.$unauth();
         Users.currentUser = '';
-        $rootScope.loginToggle = !$rootScope.loginToggle;
+        $rootScope.loginToggle = false;
         $state.go('home');
       };
 
       //method for Login/Signup swap
       function loginToggle(){
         $rootScope.loginToggle = !$rootScope.loginToggle;
-        console.log('loginToggle,',$rootScope.loginToggle)
+        // console.log('loginToggle,',$rootScope.loginToggle)
       }
       //method for Login/Signup swap
       function getLoginToggle(){
