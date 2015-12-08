@@ -27,8 +27,6 @@
 
     function Controller($rootScope, $scope, Users, Auth, $state) {
 
-      $rootScope.loginToggle = true;
-
       $scope.isUserSignedIn = isUserSignedIn;
       $scope.logout = logout;
       $scope.loginToggle = loginToggle;
@@ -44,6 +42,12 @@
       
       function isUserSignedIn() {
         // console.log('checking curerntUser in the directive:',Users.currentUser);
+        /**
+          TODO:
+          - this will not work if the page is refreshed. 
+          - should changed to DB or using cookie version.
+         */
+        
         if(Users.currentUser){
           return true;
         } else {
@@ -54,13 +58,16 @@
       function logout(){
         Auth.$unauth();
         Users.currentUser = '';
+        $rootScope.loginToggle = !$rootScope.loginToggle;
         $state.go('home');
       };
 
+      //method for Login/Signup swap
       function loginToggle(){
         $rootScope.loginToggle = !$rootScope.loginToggle;
+        console.log('loginToggle,',$rootScope.loginToggle)
       }
-
+      //method for Login/Signup swap
       function getLoginToggle(){
         return $rootScope.loginToggle;
       }
