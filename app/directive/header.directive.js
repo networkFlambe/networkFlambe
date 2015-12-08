@@ -42,13 +42,9 @@
       
       function isUserSignedIn() {
         // console.log('checking curerntUser in the directive:',Users.currentUser);
-        /**
-          TODO:
-          - this will not work if the page is refreshed. 
-          - should changed to a cookie based version.
-         */
         
-        if(Users.currentUser){
+        //check if the current user is logged in
+        if(Auth.$getAuth()){
           return true;
         } else {
           return false;

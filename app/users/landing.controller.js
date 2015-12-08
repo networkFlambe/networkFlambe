@@ -17,7 +17,9 @@
       landingCtrl.defaultName = "User";
       landingCtrl.logProfile = logProfile;
       
-
+      //this will log the current user's profile
+      // console.log('current users profile',landingCtrl.profile);
+      
       /*=============================================
       =            METHOD IMPLEMENTATION            =
       =============================================*/

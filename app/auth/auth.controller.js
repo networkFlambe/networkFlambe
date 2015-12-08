@@ -10,7 +10,7 @@
   angular.module('neuralquestApp')
     .controller('AuthCtrl', AuthCtrl);
 
-    function AuthCtrl(Auth, $state, Users, $rootScope) {
+    function AuthCtrl(Auth, $state, Users, $rootScope, $firebaseAuth, FirebaseUrl, $firebaseObject) {
       var authCtrl = this;
 
       authCtrl.user = {
@@ -23,16 +23,53 @@
       authCtrl.register = register;
       authCtrl.loginWithFacebook = loginWithFacebook;
       authCtrl.loginWithGoogle = loginWithGoogle;
-      
+      authCtrl.init = init;
 
+      authCtrl.init();
       /*=============================================
       =            METHOD IMPLEMENTATION            =
       =============================================*/
 
+      function init() {
+        Auth.$onAuth(createUserIfNew);
+      }
+
+      function createUserIfNew(authData){
+        var ref = new Firebase(FirebaseUrl);
+
+        if(authData){
+          console.log('User '+authData.uid + ' is logged in with ' + authData.provider); 
+          authCtrl.isLoggedIn = true;
+          var user = $firebaseObject(ref.child('users').child(authData.uid));
+          user.$loaded().then(function() {
+            //if the user does not exsit, create one.
+            if(user.name === undefined){
+              var newUser = {
+                /**
+                  TODO:
+                  - may add additional properties here later.
+                 */
+              };
+              if(authData.google){
+                newUser.name = authData.google.displayName;
+              } else if(authData.facebook){
+                newUser.name = authData.facebook.displayName;
+              } else {
+                newUser.name = authCtrl.user.fullname;
+              }
+
+              user.$ref().set(newUser);
+            }
+          })         
+        } else {
+          console.log('user is not signed in.')
+        }
+      }
+
       function login() {
         Auth.$authWithPassword(authCtrl.user).then(function(auth) {
           //todo: change this
-          console.log('logging in with user:',auth);
+          // console.log('logging in with user:',auth);
           Users.currentUser = auth;
           $state.go('landing');
           $rootScope.$broadcast('evt_userSigningIn');
@@ -52,7 +89,7 @@
 
       function loginWithFacebook() {
         Auth.OAuthLogin('facebook').then(function (authData){
-          console.log("authdata in controller", authData);
+          // console.log("authdata in controller", authData);
           Users.currentUser = authData;
           $state.go('landing');  
           $rootScope.$broadcast('evt_userSigningIn');
@@ -61,7 +98,7 @@
 
       function loginWithGoogle() {
         Auth.OAuthLogin('google').then(function (authData){
-          console.log("authdata in controller", authData);
+          // console.log("authdata in controller", authData);
           Users.currentUser = authData;
           $rootScope.$broadcast('evt_userSigningIn');
           $state.go('landing');  
