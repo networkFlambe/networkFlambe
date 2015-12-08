@@ -3,36 +3,29 @@
 
     angular
         .module('neuralquestApp')
-        .directive('appHeader', appHeader);
+        .directive('appHeaderSignup', appHeaderSignup);
 
 
-    function appHeader(Users) {
-        // Desc: header directive. it will know if a user is logged in or not and show the appropriate header at the top.
-        // Usage: add directive in the template
+    function appHeaderSignup(Users) {
+        // Usage: header directive. it will know if use is logged in or not and show the appropriate header at the top.
+        // don't forget to add directive in the template
         // e.g. <app-header></app-header> or <div app-header></div>
 
-        var appHeader = {
+        var appHeaderSignup = {
             controller: Controller,
             link: link,
             restrict: 'EA',
-            templateUrl: 'directive/header.directive.html',
+            templateUrl: 'directive/header.signup.directive.html',
             scope: {
             }
         };
-        return appHeader;
-
-        function link(scope, element, attrs) {
-        }
+        return appHeaderSignup;
     }
 
-    function Controller($rootScope, $scope, Users, Auth, $state) {
-
-      $rootScope.loginToggle = true;
+    function Controller($scope, Users, Auth, $state) {
 
       $scope.isUserSignedIn = isUserSignedIn;
       $scope.logout = logout;
-      $scope.loginToggle = loginToggle;
-      $scope.getLoginToggle = getLoginToggle;
       $scope.$on('evt_userSigningIn', function(){
         // console.log('checking curerntUser after the event is triggered:',Users.currentUser);
         isUserSignedIn();
@@ -55,15 +48,8 @@
         Auth.$unauth();
         Users.currentUser = '';
         $state.go('home');
+        
       };
-
-      function loginToggle(){
-        $rootScope.loginToggle = !$rootScope.loginToggle;
-      }
-
-      function getLoginToggle(){
-        return $rootScope.loginToggle;
-      }
       
     }
 })();
