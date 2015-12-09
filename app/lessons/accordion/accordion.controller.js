@@ -5,36 +5,48 @@
     .module('neuralquestApp')
     .controller('AccordionCtrl', AccordionCtrl);
 
-  /* @ngInject */
-  function AccordionCtrl() {
+  
+  function AccordionCtrl(FirebaseUrl, $firebaseObject, $firebaseArray) {
     var accordionCtrl = this;
+    var getLessons = getLessons;
 
     accordionCtrl.oneAtATime = true;
 
-    accordionCtrl.aContent = [
-      {
-        title: 'Introduction',
-        content: 'What is a neural network?'
-      },
-      {
-        title: 'Prerequisites',
-        content: 'Curiosity, algebra and, for the later modules, intermediate javascript'
-      },
-      {
-        title: 'Roadmap/Overview',
-        content: 'There are many educational resources on neural networks, but most are densely packed with mathematical equations'
-      },
-      {
-        title: 'What are neural networks used for?',
-        content: 'Neural networks can be used for many tasks'
-      }
-    ];
+    accordionCtrl.init = init;
+    accordionCtrl.init();
+    accordionCtrl.isNotString = isNotString;
+    accordionCtrl.firstIndex = firstIndex;
 
-    accordionCtrl.status = {
-      
-      isFirstOpen: true,
-      isFirstDisabled: false
-    };
+    /*======================================
+    =            IMPLEMENTATION            =
+    ======================================*/
+
+    function init() {
+      getLessons();
+    }
+
+    function firstIndex(index) {
+      if(index === 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function getLessons() {
+      var ref = new Firebase(FirebaseUrl);
+      accordionCtrl.lessons = $firebaseObject(ref.child('NeuralNetwork'));
+    }
+
+    function isNotString(val) {
+      // console.log('val', val);
+      if(typeof val === "string"){
+        console.log('is string', val);
+        return false;
+      } else {
+        return true;
+      }
+    }
 
   }
 })();

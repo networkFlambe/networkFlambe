@@ -208,10 +208,51 @@ body {
 }
 
 .accordionbutton {
-  padding-top: 10px;
-  margin-top: 10px;
+  width: 80px;
 }
 
+.accordionContainer {
+  margin-bottom: 50px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 5px 5px;
+  box-shadow: 1px 1px 5px #888;
+}
+.accordionStepTitle {
+  color: #2390EA;
+  opacity: 50%;
+}
+
+.accordionStepBox {
+  padding: 10px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.accordionCoursesBox {
+  padding: 10px 10px 20px 10px;  
+}
+
+.accordionCoursesText {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 1.2em;
+  color: #999;
+}
+
+.accordionStepContainer {
+  margin-left: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-bottom: 1px dotted #ccc;
+}
+.accordionSuffleBox {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.accordion {
+  padding-bottom: 5px;
+}
 /*----------------------------------------------------------*/
 /*                       Style Classes                      */
 /*----------------------------------------------------------*/

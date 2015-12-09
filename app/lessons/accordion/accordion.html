@@ -5,23 +5,42 @@
   <!-- main content -->
   <div class="container">
     <div class="row">
-      <h2 class="text-center">Lesson #1</h2>
-      <h3 class="text-center">Neural Network</h3>
-      <br>
+      <h2 class="text-center">Lesson</h2>
+      <h3 class="text-center">{{accordionCtrl.lessons.title}}</h3>
+      <br/>
     </div>
-    <div class="col-md-2 col-sm-1"></div>
-    <div class="col-md-8 col-sm-10">
+    <div class="col-md-1 col-sm-1"></div>
+    <div class="col-md-10 col-sm-10">
 
-      <uib-accordion close-others="accordionCtrl.oneAtATime">
-        <uib-accordion-group ng-repeat="suffle in accordionCtrl.aContent" heading="{{suffle.title}}">
-          {{suffle.content}}
-          <br>
-          <button ui-sref="lesson" class="btn btn-default accordionbutton">Continue</button>
-        </uib-accordion-group>
-      </uib-accordion>
-      <div>{{accordionCtrl.aContent}}</div>
+    
+    <div ng-show="accordionCtrl.isNotString(lesson);" class="accordionContainer" ng-repeat="(key, lesson) in accordionCtrl.lessons">
+      <div class="accordionStepBox">
+        <h4 class="accordionStepTitle">Step {{$index+1}}: {{lesson.title}}</h4>
+        <span>Summary: {{lesson.summary}}</span>
+      </div>
+      <div class="accordionCoursesBox">
+        <div class="accordionCoursesText">Available Courses</div>
+
+        <!-- accordion for suffles -->
+        <uib-accordion close-others="accordionCtrl.oneAtATime">
+          <!-- only give accordion to object vals -->
+          <div class="accordion" ng-show="accordionCtrl.isNotString(subLesson);" ng-repeat="(key, subLesson) in lesson">
+            <!-- <uib-accordion-group heading="{{value.title}}" is-open="accordionCtrl.firstIndex($index)"> -->
+            <uib-accordion-group heading="{{subLesson.title}}">
+              <div ng-repeat="(key, suffle) in subLesson">
+                <div ng-show="accordionCtrl.isNotString(suffle);" class="accordionSuffleBox">
+                  {{$index+1}}. {{suffle.title}} 
+                </div>
+              </div>
+              <br/>
+              <button ui-sref="lesson" class="btn btn-default accordionbutton">Start</button>
+            </uib-accordion-group>
+          </div>
+        </uib-accordion>
+      </div>
     </div>
-    <div class="col-md-2 col-sm-1"></div>
+
+    <div class="col-md-1 col-sm-1"></div>
   </div>
 </div>
 

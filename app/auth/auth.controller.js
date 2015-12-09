@@ -69,9 +69,9 @@
       function login() {
         Auth.$authWithPassword(authCtrl.user).then(function(auth) {
           //todo: change this
-          // console.log('logging in with user:',auth);
+          console.log('logging in with user:',auth);
           Users.currentUser = auth;
-          $state.go('landing');
+          $state.go('accordion');
           $rootScope.$broadcast('evt_userSigningIn');
         }, function(error) {
           authCtrl.error = error;
@@ -91,7 +91,7 @@
         Auth.OAuthLogin('facebook').then(function (authData){
           // console.log("authdata in controller", authData);
           Users.currentUser = authData;
-          $state.go('landing');  
+          $state.go('accordion');  
           $rootScope.$broadcast('evt_userSigningIn');
         });
       };
@@ -101,7 +101,7 @@
           // console.log("authdata in controller", authData);
           Users.currentUser = authData;
           $rootScope.$broadcast('evt_userSigningIn');
-          $state.go('landing');  
+          $state.go('accordion');  
         }); 
       };
 
