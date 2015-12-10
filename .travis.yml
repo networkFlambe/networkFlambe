@@ -6,4 +6,4 @@ before_script:
   - 'bower install'
   - 'sudo $(which npm) install -g firebase-tools'
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - firebase deploy --token '-K2FmmPbt2Rz4UM_4Tqt|162fb88fbd80345f1aeef21c75d231b8'
