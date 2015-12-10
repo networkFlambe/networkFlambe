@@ -5,21 +5,5 @@ before_script:
   - 'npm install -g bower grunt-cli'
   - 'bower install'
   - 'sudo $(which npm) install -g firebase-tools'
-<<<<<<< HEAD
-# after_success:
-  # - firebase deploy --email ${FIREBASE_USERNAME} --password ${FIREBASE_PASSWORD}
 after_success:
-  - mkdir /home/travis/tmp
-  - if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then echo -e "${FIREBASE_USERNAME}\n${FIREBASE_PASSWORD}" | firebase deploy; fi
-  
-=======
-# all not working..
-# after_success:
-#   - firebase deploy --email ${FIREBASE_USERNAME} --password ${FIREBASE_PASSWORD}
-# after_success:
-#   firebase deploy --token "${FIREBASE_TOKEN}"
-# after_success:
-#   - mkdir /home/travis/tmp
-#   - sudo $(which npm) install -g firebase-tools
-#   - if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then echo -e "${FIREBASE_EMAIL}\n${FIREBASE_PASSWORD}" | firebase deploy; fi
->>>>>>> 01d4c3d... temp commit
+  - firebase deploy --token '-K2FmmPbt2Rz4UM_4Tqt|162fb88fbd80345f1aeef21c75d231b8'
