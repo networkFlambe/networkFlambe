@@ -22,7 +22,8 @@
       'ngAnimate',
       'toaster',
       'youtube-embed',
-      'chart.js'
+      'chart.js',
+      'jsxGraph'
     ])
 
     .run(["$rootScope", "$window", '$location', scrollToTop]);

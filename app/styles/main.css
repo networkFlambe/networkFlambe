@@ -461,14 +461,15 @@ body {
 .missiontitle{
   /*margin-left: 20px;*/
   padding-top: 10px;
+  text-align: center;
 }
 
 img{
   border-radius: 6px;
+  margin: 0 auto;
 }
 
 .element-images {
-  max-width: 700px;
   padding-bottom:2em;
   margin: 0 auto;
 }
@@ -481,6 +482,7 @@ img{
   margin: 0 auto;
   display: block;
 }
+
 .missionlocator {
   color: #999;
   font-size: 1em;
@@ -543,6 +545,16 @@ img{
 .lessonBox:hover {
   border: 8px solid #4A4A4A;
 }
+
+.progress-bar-success {
+  background-color:#4A4A4A;
+}
+
+.jxgbox {
+  width:600px;
+  height:300px;
+}
+
 /*----------------------------------------------------------*/
 /*                       Ace Style Classes                  */
 /*----------------------------------------------------------*/

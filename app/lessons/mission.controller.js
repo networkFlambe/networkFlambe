@@ -58,6 +58,7 @@ function resetGate() {
     missionCtrl.multipleChoiceChecker = multipleChoiceChecker;
     resetGate();
     checkGateNeededEle();
+    missionCtrl.jsxGraph = jsxGraph;
 
     
     // init();
@@ -296,6 +297,17 @@ function resetGate() {
       }
     };
   };
+
+      function jsxGraph (board) {
+      var bias = board.create('slider', [[0, -0.25],[3, -0.25], [-30,5,30]], {name:'bias'})
+      var weights = board.create('slider', [[0, -0.5],[3, -0.5], [-15,0,15]], {name: 'sum of weights'})
+     // var x = ((weights.Value())+bias.Value())
+      board.create('functiongraph',
+                       [function(x){
+                        return 1/(1 + Math.exp((-x*bias.Value())+weights.Value())
+                          )}], 
+                       {strokeColor:'blue',strokeWidth:3,dash:1});
+    }
 
 })();
 
