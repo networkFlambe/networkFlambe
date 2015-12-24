@@ -460,21 +460,21 @@ body {
 .missiontitle{
   /*margin-left: 20px;*/
   padding-top: 10px;
+  text-align: center;
 }
 
 img{
   border-radius: 6px;
+  margin: 0 auto;
 }
 
 .element-images {
-  max-width: 700px;
-  padding-bottom:2em;
-  /*margin: 0 auto;*/
-}
-.element-images img {
+  text-align:center;
+  margin: 0 auto;
   max-width: 100%;
   height: auto;
 }
+
 .missionlocator {
   color: #999;
   font-size: 1em;
@@ -511,6 +511,9 @@ img{
   margin-bottom: 20px;
 }
 
+.progress-bar-success {
+  background-color:#4A4A4A;
+}
 /*----------------------------------------------------------*/
 /*                       Ace Style Classes                  */
 /*----------------------------------------------------------*/
