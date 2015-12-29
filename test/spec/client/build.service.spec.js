@@ -42,7 +42,7 @@ describe('build.service.spec', function () {
 
   });
   
-  describe('getBuildMode method unit tests', function () {
+  xdescribe('getBuildMode method unit tests', function () {
     it('should return Boolean buildMode', function () {
       $localStorage.isBuildMode = false;
 

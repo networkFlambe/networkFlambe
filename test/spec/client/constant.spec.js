@@ -13,7 +13,7 @@ describe('constant.spec', function () {
   }));
 
   var theUrl = 'https://neuralquest.firebaseio.com/';
-  it('should have the right URL', function () {
+  xit('should have the right URL', function () {
     expect(FirebaseUrl).toEqual(theUrl);
 
   });

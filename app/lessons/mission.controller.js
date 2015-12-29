@@ -299,8 +299,8 @@ function resetGate() {
   };
 
       function jsxGraph (board) {
-      var bias = board.create('slider', [[0, -0.25],[3, -0.25], [-30,5,30]], {name:'bias'})
-      var weights = board.create('slider', [[0, -0.5],[3, -0.5], [-15,0,15]], {name: 'sum of weights'})
+      var bias = board.create('slider', [[0, -0.25],[3, -0.25], [-60,1,60]], {name:'weight'})
+      var weights = board.create('slider', [[0, -0.5],[3, -0.5], [-30,0,30]], {name: 'bias'})
      // var x = ((weights.Value())+bias.Value())
       board.create('functiongraph',
                        [function(x){

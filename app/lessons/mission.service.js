@@ -47,7 +47,7 @@
         var devUrl = 'http://localhost:1337';
         var apiRoot = 'https://neuralquest.herokuapp.com';
 
-        $.post(apiRoot + path, data, function( results ) {
+        $.post(devUrl + path, data, function( results ) {
           console.log(JSON.stringify(results));
           var errorAndIterations = results.result.answer[0];
           console.log('errorAndIterations is ', errorAndIterations);
