@@ -14,7 +14,7 @@ describe('Missions.service.spec', function () {
     })
   );
 
-  describe('Missions methods', function () {
+  xdescribe('Missions methods', function () {
     it('should have all needed methods', function () {
       expect(typeof Missions.getShuffleData).toBe('function');
       expect(typeof Missions.getLastElement).toBe('function');

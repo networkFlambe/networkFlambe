@@ -84,6 +84,16 @@
  
           </div>
 
+          <div ng-switch-when="math-graph" class="element-math-graph">
+            <h3 class="title">{{ element.title }}</h3>
+            <p>{{ element.content }}</p>
+         
+            <div id="box" class="jxgbox"
+            jxg-board="{axis: true, grid: true, boundingbox: [-5,1.25,5,-1]}" 
+            jxg-callback="missionCtrl.jsxGraph"></div> 
+ 
+          </div>
+
         </div>
       </div><!-- END ng-repeat -->
       <button ng-show="!missionCtrl.gate.gateNeededEleNum" class="nextbotton btn btn-default btn-large" ui-sref="mission({ courseName: missionCtrl.nextShuffle })" ng-click="missionCtrl.saveElement( missionCtrl.sequence )">Next Lesson</button>

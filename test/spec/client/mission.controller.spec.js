@@ -53,12 +53,12 @@ describe('Missions.controller.spec', function () {
     })
 
   });
-  describe('isAdmin unit test', function () {
+  xdescribe('isAdmin unit test', function () {
     it('should return true for an admin user', function () {
       expect(MissionCtrl.isAdmin()).toBe(true);
     });
   });
-  describe('isBuildMode unit test', function () {
+  xdescribe('isBuildMode unit test', function () {
     it('should return true or false', function () {
       var result = false;
       if(MissionCtrl.isBuildMode() === true || MissionCtrl.isBuildMode() === false){
