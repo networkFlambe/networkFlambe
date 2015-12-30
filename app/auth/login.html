@@ -1,24 +1,21 @@
 <div class="container-fluid">
   <!-- header -->
-  <div app-header></div>
-  
+  <div app-header></div>  
   <div class="homeimagebox">
     <img class="homeimage" src="images/neuralnetwork_background_dark.jpg" alt="">
   </div>
- </div>
+</div>
 
 <div class="row homepagewrapper">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    
-  
-    <div class="row">
+    <div class="row homemaincontent">
       <div class="hometitle">
         <h1 class="text-center">Learn Neural Networks from your Browser</h1>
       </div>
       <div class="col-md-6 col-sm-6">
         <div class="mainvideowrapper">
-          <h3 class="text-center">What is a neutral network?</h3>
+          <h3 class="text-center">What is a neural network?</h3>
           <p class="text-center">"Neural networks are mathematical models that can exhibit many remarkable behaviors, such as the ability to learn based on experience."</p>
           <div class="frontdoorwrapper">
             <div class="embed-responsive embed-responsive-16by9">  
@@ -27,7 +24,7 @@
             </div>
           </div>
         </div>
-      </div>     
+      </div>
       <div class="col-md-6 col-sm-6">
         <div class="maincontentwrapper">
           
@@ -64,8 +61,14 @@
         </div>
       </div>
     </div>
-
   </div>
   <div class="col-md-1"></div>
+</div>
+
+<div class="row homepagewrapper teaminfowrapper" id="teaminfo">
+  <div ng-include="'auth/teaminfo.html'" class="hometeaminfo"></div>
+</div>
+<div class="row homepagewrapper techstackwrapper" id="techstack">
+  <div ng-include="'auth/techstack.html'" class="hometechstack"></div>
 </div>
 

@@ -28,10 +28,14 @@
     function init() {
       accordionCtrl.allEl = accordionData;
       accordionCtrl.track = makeLocalObject(accordionCtrl.allEl);
-      accordionCtrl.currentUser = Users.getProfile(Auth.$getAuth().uid);
+      // if(Users.getProfile(Auth.$getAuth())){
+        accordionCtrl.currentUser = Users.getProfile(Auth.$getAuth().uid);  
+      // }
+      
       accordionCtrl.currentUser.$loaded().then(function() {
         var currSeq = accordionCtrl.currentUser.currentSequence;
         var maxSeq = accordionCtrl.currentUser.maxSequence;
+        // console.log('maxseq',maxSeq);
         ref.orderByChild('sequence')
            .equalTo(currSeq)
            .on('value', function(snapshot) {

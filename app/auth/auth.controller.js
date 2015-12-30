@@ -10,7 +10,7 @@
   angular.module('neuralquestApp')
     .controller('AuthCtrl', AuthCtrl);
 
-    function AuthCtrl(Auth, $state, Users, $rootScope, $timeout, $firebaseAuth, FirebaseUrl, $firebaseObject) {
+    function AuthCtrl(Auth, $state, Users, $rootScope, $timeout, $firebaseAuth, FirebaseUrl, $firebaseObject, TeamInfo) {
       var authCtrl = this;
 
       authCtrl.user = {
@@ -36,6 +36,9 @@
 
       function init() {
         Auth.$onAuth(createUserIfNew);
+        TeamInfo.getTeamInfo().then(function (teamInfo) {
+          authCtrl.teamInfo = teamInfo;
+        });
       }
 
       function createUserIfNew(authData){

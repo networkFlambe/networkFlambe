@@ -1,0 +1,17 @@
+  <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div><h1 class="text-center">Our Team</h1></div>
+      <br />
+      <br />
+      <br />
+      <div class="col-md-3 col-sm-6" ng-repeat="member in authCtrl.teamInfo">
+        <div class="teaminfoimagebox"><img class="teaminfoimage" ng-src="{{member.avatarUrl}}" alt=""></div>
+        <div class="teaminfocontent">
+          <h4>{{member.name}}</h4>
+          <p><span class="roletag">{{member.role}}</span></p>
+          <p>{{member.introduction}}</p>
+          <p><a href="{{member.github}}" target="_blank">GITHUB</a> | <a href="{{member.blog}}" target="_blank">BLOG</a></p>
+        </div>
+      </div>
+    </div>
+  <div class="col-md-1"></div>
