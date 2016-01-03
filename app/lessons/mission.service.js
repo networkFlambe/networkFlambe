@@ -9,7 +9,7 @@
 
   angular
     .module('neuralquestApp')
-    .factory('Missions', Missions);
+    .factory('Missions', ['$firebaseArray', '$firebaseObject', 'FirebaseUrl', '$q', 'toaster', Missions]);
 
     function Missions($firebaseArray, $firebaseObject, FirebaseUrl, $q, toaster){
       var ref = new Firebase(FirebaseUrl + '/NNFlat');

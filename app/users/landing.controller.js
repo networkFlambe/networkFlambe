@@ -8,7 +8,7 @@
   'use strict';
 
   angular.module('neuralquestApp')
-    .controller('LandingCtrl', LandingCtrl);
+    .controller('LandingCtrl', ['profile', LandingCtrl]);
 
     function LandingCtrl (profile) {
       var landingCtrl = this;

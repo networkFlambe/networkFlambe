@@ -3,7 +3,10 @@
 
   angular
     .module('neuralquestApp')
-    .controller('AccordionCtrl', AccordionCtrl);
+    .controller('AccordionCtrl', [
+      'FirebaseUrl', '$firebaseObject', '$firebaseArray', 'accordionData', 
+      'Users', 'Auth', 'Missions', '$timeout', '$scope', AccordionCtrl
+      ]);
 
   
   function AccordionCtrl(FirebaseUrl, $firebaseObject, $firebaseArray, accordionData, Users, Auth, Missions, $timeout, $scope) {

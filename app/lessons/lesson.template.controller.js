@@ -8,7 +8,7 @@
   'use strict';
 
   angular.module('neuralquestApp')
-    .controller('LessonTemplateCtrl', LessonTemplateCtrl);
+    .controller('LessonTemplateCtrl', ['$firebaseObject', 'FirebaseUrl', LessonTemplateCtrl]);
 
     function LessonTemplateCtrl ($firebaseObject, FirebaseUrl) {
       var lessonTemplateCtrl = this;

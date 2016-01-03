@@ -3,7 +3,7 @@
 //consider deleteing this.
   angular
     .module('neuralquestApp')
-    .factory('AccordionService', AccordionService);
+    .factory('AccordionService', ['$q', 'FirebaseUrl', '$firebaseObject', '$firebaseArray', AccordionService]);
 
 
   function AccordionService($q, FirebaseUrl, $firebaseObject, $firebaseArray) {
