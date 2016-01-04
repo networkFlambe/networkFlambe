@@ -12,7 +12,6 @@
         buildCtrl.submitEle = submitEle;
 
         $scope.$watch('buildCtrl.eltoModify', function(newVal, oldVal){
-            // console.log("Search was changed to:"+newVal);
             if(newVal && newVal.length >= 2){
                 Build.getElementonDB(newVal).then(function(ele){
                     buildCtrl.build = ele;

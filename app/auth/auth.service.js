@@ -24,10 +24,8 @@
       =============================================*/
       function OAuthLogin(provider){
         var defer = $q.defer();
-        console.log("OAuthLogin called for provider, ", provider);
         auth.$authWithOAuthPopup(provider)
             .then(function (authData){
-              console.log("Login with ", authData);
               defer.resolve(authData);
             })
             .catch(function (err){

@@ -36,7 +36,6 @@ var nqConsole = function() {
     function init() {
       initCodeEditor();
       trackCode();
-      console.log('editor', editor)
     };
 
     function trackCode() {
@@ -53,9 +52,7 @@ var nqConsole = function() {
     };
 
     function getValue() {
-      console.log('getValue called');
       vm.result = $localStorage.codeObj;
-      console.log(vm.result);
     };
 
     function reset() {
@@ -66,7 +63,6 @@ var nqConsole = function() {
 
     function run() {
       document.getElementById('result').innerHTML = '';
-      // console.log('aceCode script block', document.getElementsByClassName('aceCode'));
       $('.aceCode').remove();
 
       $timeout(function(){

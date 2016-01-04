@@ -45,7 +45,6 @@
         var ref = new Firebase(FirebaseUrl);
 
         if(authData){
-          console.log('User '+authData.uid + ' is logged in with ' + authData.provider); 
           authCtrl.isLoggedIn = true;
           var user = $firebaseObject(ref.child('users').child(authData.uid));
           user.$loaded().then(function() {
@@ -69,11 +68,9 @@
                 // newUser.emailAddress = authData.facebook.email;
               } 
               if(authData.password) {
-                console.log("logging authctrl.user", authCtrl.user);
                 newUser.displayName = authCtrl.user.fullname;
                 newUser.emailAddress = authCtrl.user.email;
                 newUser.profileImageURL = 'http://www.gravatar.com/avatar/';
-                console.log('creating a new passwrod user', newUser);
               }
 
               user.$ref().set(newUser);
@@ -87,7 +84,6 @@
       function login() {
         Auth.$authWithPassword(authCtrl.user).then(function(auth) {
           //todo: change this
-          console.log('logging in with user:',auth);
           Users.currentUser = auth;
           $state.go('accordion');
           $rootScope.$broadcast('evt_userSigningIn');
@@ -118,7 +114,6 @@
           email: authCtrl.user.email
         }, function(err) {
           if(!err){
-            console.log("password reset email sent successfully");
             alert("an email has been sent to "+authCtrl.user.email+". \n You will be directed to the sign in page");
             $timeout(function(){
               $state.go('home');
@@ -133,7 +128,6 @@
 
       function loginWithFacebook() {
         Auth.OAuthLogin('facebook').then(function (authData){
-          // console.log("authdata in controller", authData);
           Users.currentUser = authData;
           $state.go('accordion');  
           $rootScope.$broadcast('evt_userSigningIn');
@@ -142,7 +136,6 @@
 
       function loginWithGoogle() {
         Auth.OAuthLogin('google').then(function (authData){
-          // console.log("authdata in controller", authData);
           Users.currentUser = authData;
           $rootScope.$broadcast('evt_userSigningIn');
           $state.go('accordion');  
