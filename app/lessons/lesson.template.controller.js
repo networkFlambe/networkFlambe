@@ -15,7 +15,6 @@
       var ref = new Firebase(FirebaseUrl + 'test2/steps/step1/courses/courseID1/missions/refName3/shuffles/generated5');
 
       lessonTemplateCtrl.data = $firebaseObject(ref);
-      lessonTemplateCtrl.logLesson = logLesson;
 
       lessonTemplateCtrl.data.$loaded()
         .then(function() {
@@ -26,10 +25,6 @@
       /*=============================================
       =            METHOD IMPLEMENTATION            =
       =============================================*/
-      function logLesson() {
-        //todo: this was just for reference and can be removed
-        console.log(lessonTemplateCtrl.lesson);
-      }
       
     }
 

@@ -64,7 +64,6 @@ angular
             },
             profile: function(Users, Auth) {
               return Auth.$requireAuth().then(function(auth) {
-                console.log("you hit profile state!")
                 return Users.getProfile(auth.uid).$loaded();
               });
             }
@@ -98,11 +97,6 @@ angular
               });
             }
           }
-        })
-        .state('temp', {
-          url: '/temp',
-          controller: 'TempCtrl as tempCtrl',
-          templateUrl: 'templanding/temp.html',
         })
         .state('mission', {
           url: '/mission/:courseName',
