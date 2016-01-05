@@ -8,7 +8,7 @@
   'use strict';
 
   angular.module('neuralquestApp')
-    .factory('Auth', Auth);
+    .factory('Auth', ['$firebaseAuth','FirebaseUrl','$q',Auth]);
 
     function Auth($firebaseAuth, FirebaseUrl, $q) {
       var ref = new Firebase(FirebaseUrl);

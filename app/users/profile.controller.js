@@ -8,7 +8,7 @@
   'use strict';
 
   angular.module('neuralquestApp')
-    .controller('ProfileCtrl', ProfileCtrl);
+    .controller('ProfileCtrl', ['$state', 'md5', 'auth', 'profile', 'FirebaseUrl', 'Auth', '$timeout', 'Users', 'Build', ProfileCtrl]);
 
     function ProfileCtrl ($state, md5, auth, profile, FirebaseUrl, Auth, $timeout, Users, Build) {
       var profileCtrl = this;

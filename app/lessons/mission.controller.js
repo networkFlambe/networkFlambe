@@ -23,7 +23,13 @@ function resetGate() {
   'use strict';
 
   angular.module('neuralquestApp')
-    .controller('MissionCtrl', MissionCtrl);
+    .controller('MissionCtrl', [
+      '$firebaseArray', 'FirebaseUrl', 
+    '$firebaseObject', 'Missions', 'missionData', 
+    '$scope', 'Build', 'Users', 'auth', 'lastEle',
+    '$localStorage', '$timeout', '$state', '$sce',
+    '$uibModal', MissionCtrl
+      ]);
 
   function MissionCtrl ($firebaseArray, FirebaseUrl, 
     $firebaseObject, Missions, missionData, 

@@ -8,7 +8,10 @@
   'use strict';
 
   angular.module('neuralquestApp')
-    .controller('AuthCtrl', AuthCtrl);
+    .controller('AuthCtrl', [
+      'Auth', '$state', 'Users', '$rootScope', '$timeout', '$firebaseAuth', 
+      'FirebaseUrl', '$firebaseObject', 'TeamInfo',AuthCtrl
+      ]);
 
     function AuthCtrl(Auth, $state, Users, $rootScope, $timeout, $firebaseAuth, FirebaseUrl, $firebaseObject, TeamInfo) {
       var authCtrl = this;

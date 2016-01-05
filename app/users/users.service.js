@@ -9,7 +9,7 @@
 
   angular
     .module('neuralquestApp')
-    .factory('Users', Users);
+    .factory('Users', ['$firebaseArray', '$firebaseObject', 'FirebaseUrl', '$location', Users]);
 
 
     function Users($firebaseArray, $firebaseObject, FirebaseUrl, $location){

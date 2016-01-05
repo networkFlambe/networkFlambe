@@ -3,7 +3,7 @@
 
     angular
         .module('neuralquestApp')
-        .directive('appHeader', appHeader);
+        .directive('appHeader', ['Users',appHeader]);
 
 
     function appHeader(Users) {
